@@ -1,0 +1,43 @@
+{% extends 'toDo_App/layout.html' %}
+
+{% block title %}список моих дел{% endblock %}
+{% block content %}
+
+    <h1 align="center">список моих дел</h1>
+    {% if notes %}
+          <div class="block">
+              <div class="row gy-5">
+                {% for elem in notes %}
+                <div class="col-6">
+                <div class="card border-info mb-3" style="max-width: 30rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" align="center">{{elem.title}}</h5>
+                        <p class="card-text" align="center">{{elem.description}}</p>
+                        <p class="card-text" align="right"><small>{{elem.date}}</small></p>
+                        <div style="width: 100%; text-align: center;">
+                            <a href="/{{ elem.id }}/update"><button type="button" class="btn btn-warning">редактировать</button></a>
+                            <a href="/{{ elem.id }}/delete"><button type="button" class="btn btn-danger">удалить</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+         </div>
+         </div>
+
+         <div style="width: 100%; text-align: center;">
+             <form action='{% url "create" %}'>
+                 <p><button type="submit" class="button1">добавить запись</button></p>
+             </form>
+         </div>
+    {% else %}
+        <h3 align="center">у вас 0 дел</h3>
+        <div style="width: 100%; text-align: center;">
+            <form action='{% url "create" %}'>
+            <p><button type="submit" class="button1">добавить запись</button></p>
+            </form>
+        </div>
+
+    {% endif %}
+{% endblock %}

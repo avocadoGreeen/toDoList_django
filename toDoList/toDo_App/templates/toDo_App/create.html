@@ -1,0 +1,17 @@
+{% extends 'toDo_App/layout.html' %}
+
+{% block title %}список дел{% endblock %}
+{% block content %}
+    <h1 align="center">добавить запись</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.description }}<br>
+        {{ form.priority }}<br>
+        {{ form.date }}<br>
+        <span>{{ error }}</span>
+        <div style="width: 100%; text-align: center;">
+            <button class="button1" type="submit">добавить</button>
+        </div>
+    </form>
+{% endblock %}

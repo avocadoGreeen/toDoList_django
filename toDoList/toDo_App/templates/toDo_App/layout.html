@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static%}
+    <link rel="stylesheet" href ="{% static 'css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/ToDo.css' %}">
+</head>
+<body>
+<header>
+    <div class="title">to do</div>
+</header>
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>
